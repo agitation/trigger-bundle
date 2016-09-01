@@ -6,13 +6,11 @@ use DateTime;
 use Exception;
 use DateInterval;
 use Serializable;
+use Agit\ApiBundle\Exception\ObjectNotFoundException;
 use Agit\CommonBundle\Helper\StringHelper;
-
 use Doctrine\ORM\EntityManager;
 use Agit\IntlBundle\Translate;
 use Agit\TriggerBundle\Entity\TriggerAction;
-
-use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 
 class TriggerService
 {
@@ -52,7 +50,7 @@ class TriggerService
             ->findOneBy([ "token" => $token ]);
 
         if (!$triggerAction)
-            throw new InvalidCsrfTokenException("The requested token was not found.");
+            throw new ObjectNotFoundException("The requested token was not found.");
 
         $service = $triggerAction->getService();
         $method = $triggerAction->getMethod();
