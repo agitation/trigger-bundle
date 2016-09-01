@@ -1,0 +1,4 @@
+services:
+    agit.trigger:
+        class: Agit\TriggerBundle\Service\TriggerService
+        arguments : [ "@doctrine.orm.entity_manager", "@service_container" ]

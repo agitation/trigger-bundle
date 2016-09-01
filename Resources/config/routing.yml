@@ -1,0 +1,3 @@
+trigger_token :
+    path : /{token}
+    defaults : { _controller: AgitTriggerBundle:Trigger:token }
