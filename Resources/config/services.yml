@@ -2,3 +2,7 @@ services:
     agit.trigger:
         class: Agit\TriggerBundle\Service\TriggerService
         arguments : [ "@doctrine.orm.entity_manager", "@service_container" ]
+    agit.trigger.cleanup:
+        class: Agit\TriggerBundle\Service\CleanupService
+        arguments : [ "@doctrine.orm.entity_manager" ]
+        tags : [{ name: kernel.event_listener, event: agit.cron.register, method: cronjobRegistration }]
