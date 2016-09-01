@@ -1,0 +1,23 @@
+{
+    "name": "agitation/trigger-bundle",
+    "type": "symfony-bundle",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.9",
+        "agitation/common-bundle": "dev-master",
+        "agitation/intl-bundle": "dev-master",
+        "agitation/pluggable-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Agit\\TriggerBundle\\": ""
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AGITsol GmbH",
+            "homepage": "http://www.agitsol.com/"
+        }
+    ]
+}
