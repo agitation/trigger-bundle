@@ -11,6 +11,7 @@ use Agit\CommonBundle\Helper\StringHelper;
 use Doctrine\ORM\EntityManager;
 use Agit\IntlBundle\Translate;
 use Agit\TriggerBundle\Entity\TriggerAction;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class TriggerService
 {
@@ -18,23 +19,22 @@ class TriggerService
 
     private $entityManager;
 
-    private $container;
+    private $eventDispatcher;
 
-    public function __construct(EntityManager $entityManager, $container)
+    public function __construct(EntityManager $entityManager, EventDispatcherInterface $eventDispatcher)
     {
         $this->entityManager = $entityManager;
-        $this->container = $container;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function createTrigger($service, $method, TriggerData $data, $ttl = self::DEFAULT_TTL)
+    public function createTrigger($tag, TriggerData $data, $ttl = self::DEFAULT_TTL)
     {
         $expires = new DateTime();
         $expires->add(new DateInterval("PT{$ttl}S"));
 
         $triggerAction = new TriggerAction();
         $triggerAction->setToken(StringHelper::createRandomString(20));
-        $triggerAction->setService($service);
-        $triggerAction->setMethod($method);
+        $triggerAction->setTag($tag);
         $triggerAction->setData($data);
         $triggerAction->setExpires($expires);
 
@@ -52,14 +52,13 @@ class TriggerService
         if (!$triggerAction)
             throw new ObjectNotFoundException("The requested token was not found.");
 
-        $service = $triggerAction->getService();
-        $method = $triggerAction->getMethod();
-        $data = $triggerAction->getData();
+        $tag = $triggerAction->getTag();
+        $data = $triggerAction->getData()->getValues();
 
         // remove before executing, in case there are exceptions
         $this->entityManager->remove($triggerAction);
         $this->entityManager->flush();
 
-        $this->container->get($service)->$method($data);
+        $this->eventDispatcher->dispatch("agit.trigger", new TriggerEvent($tag, $data));
     }
 }

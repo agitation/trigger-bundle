@@ -22,12 +22,7 @@ class TriggerAction
     /**
      * @ORM\Column(type="string")
      */
-    private $service;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $method;
+    private $tag;
 
     /**
      * @ORM\Column(type="array")
@@ -63,49 +58,26 @@ class TriggerAction
     }
 
     /**
-     * Set service
+     * Set tag
      *
-     * @param string $service
+     * @param string $tag
      *
      * @return TriggerAction
      */
-    public function setService($service)
+    public function setTag($tag)
     {
-        $this->service = $service;
+        $this->tag = $tag;
         return $this;
     }
 
     /**
-     * Get service
+     * Get tag
      *
      * @return string
      */
-    public function getService()
+    public function getTag()
     {
-        return $this->service;
-    }
-
-    /**
-     * Set method
-     *
-     * @param string $method
-     *
-     * @return TriggerAction
-     */
-    public function setMethod($method)
-    {
-        $this->method = $method;
-        return $this;
-    }
-
-    /**
-     * Get method
-     *
-     * @return string
-     */
-    public function getMethod()
-    {
-        return $this->method;
+        return $this->tag;
     }
 
     /**

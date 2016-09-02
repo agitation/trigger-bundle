@@ -1,7 +1,7 @@
 services:
     agit.trigger:
         class: Agit\TriggerBundle\Service\TriggerService
-        arguments : [ "@doctrine.orm.entity_manager", "@service_container" ]
+        arguments : [ "@doctrine.orm.entity_manager", "@event_dispatcher" ]
     agit.trigger.cleanup:
         class: Agit\TriggerBundle\Service\CleanupService
         arguments : [ "@doctrine.orm.entity_manager" ]
