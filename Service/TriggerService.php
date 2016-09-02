@@ -7,7 +7,7 @@ use Exception;
 use DateInterval;
 use Serializable;
 use Agit\ApiBundle\Exception\ObjectNotFoundException;
-use Agit\CommonBundle\Helper\StringHelper;
+use Agit\BaseBundle\Helper\StringHelper;
 use Doctrine\ORM\EntityManager;
 use Agit\IntlBundle\Translate;
 use Agit\TriggerBundle\Entity\TriggerAction;

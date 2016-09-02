@@ -5,7 +5,7 @@ namespace Agit\TriggerBundle\Entity;
 use DateTime;
 
 use Doctrine\ORM\Mapping as ORM;
-use Agit\CommonBundle\Entity\GeneratedIdentityAwareTrait;
+use Agit\BaseBundle\Entity\GeneratedIdentityAwareTrait;
 
 /**
  * @ORM\Entity

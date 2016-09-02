@@ -2,7 +2,7 @@
 
 namespace Agit\TriggerBundle\Exception;
 
-use Agit\CommonBundle\Exception\AgitException;
+use Agit\BaseBundle\Exception\AgitException;
 
 /**
  * A non-existent ticket has been requested or referenced.
