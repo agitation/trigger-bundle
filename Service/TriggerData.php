@@ -5,7 +5,7 @@ namespace Agit\TriggerBundle\Service;
 use Exception;
 use Serializable;
 use Doctrine\ORM\EntityManager;
-use Agit\IntlBundle\Translate;
+use Agit\BaseBundle\Tool\Translate;
 
 class TriggerData implements Serializable
 {
