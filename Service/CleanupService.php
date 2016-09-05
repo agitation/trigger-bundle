@@ -3,11 +3,10 @@
 namespace Agit\TriggerBundle\Service;
 
 use DateTime;
-use Agit\CronBundle\Cron\CronAwareInterface;
-use Agit\CronBundle\Event\CronjobRegistrationEvent;
+use Agit\BaseBundle\Event\CronjobRegistrationEvent;
 use Doctrine\ORM\EntityManager;
 
-class CleanupService implements CronAwareInterface
+class CleanupService
 {
     public function __construct(EntityManager $entityManager)
     {
@@ -16,10 +15,10 @@ class CleanupService implements CronAwareInterface
 
     public function cronjobRegistration(CronjobRegistrationEvent $event)
     {
-        $event->registerCronjob($this, "*/15 * * * *");
+        $event->registerCronjob("*/10 * * * *", [$this, "cleanup"]);
     }
 
-    public function cronjobExecute()
+    public function cleanup()
     {
         $this->entityManager->createQueryBuilder()
             ->delete("AgitTriggerBundle:TriggerAction", "action")
