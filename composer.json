@@ -5,8 +5,7 @@
     "require": {
         "php": ">=5.4.9",
         "agitation/base-bundle": "dev-master",
-        "agitation/cron-bundle": "dev-master",
-        "agitation/pluggable-bundle": "dev-master"
+        "agitation/cron-bundle": "dev-master"
     },
     "autoload": {
         "psr-4": {
