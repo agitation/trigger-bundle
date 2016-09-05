@@ -4,8 +4,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.9",
-        "agitation/base-bundle": "dev-master",
-        "agitation/cron-bundle": "dev-master"
+        "agitation/base-bundle": "dev-master"
     },
     "autoload": {
         "psr-4": {
