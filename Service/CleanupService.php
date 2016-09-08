@@ -3,7 +3,7 @@
 namespace Agit\TriggerBundle\Service;
 
 use DateTime;
-use Agit\BaseBundle\Event\CronjobRegistrationEvent;
+use Agit\CronBundle\Event\CronjobRegistrationEvent;
 use Doctrine\ORM\EntityManager;
 
 class CleanupService
