@@ -9,7 +9,7 @@ use Serializable;
 use Agit\ApiBundle\Exception\ObjectNotFoundException;
 use Agit\BaseBundle\Tool\StringHelper;
 use Doctrine\ORM\EntityManager;
-use Agit\BaseBundle\Tool\Translate;
+use Agit\IntlBundle\Tool\Translate;
 use Agit\TriggerBundle\Entity\TriggerAction;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
