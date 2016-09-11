@@ -1,9 +1,16 @@
 <?php
 
+/*
+ * @package    agitation/trigger-bundle
+ * @link       http://github.com/agitation/trigger-bundle
+ * @author     Alexander Günsche
+ * @license    http://opensource.org/licenses/MIT
+ */
+
 namespace Agit\TriggerBundle\Service;
 
-use DateTime;
 use Agit\CronBundle\Event\CronjobRegistrationEvent;
+use DateTime;
 use Doctrine\ORM\EntityManager;
 
 class CleanupService

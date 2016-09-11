@@ -1,16 +1,20 @@
 <?php
 
+/*
+ * @package    agitation/trigger-bundle
+ * @link       http://github.com/agitation/trigger-bundle
+ * @author     Alexander Günsche
+ * @license    http://opensource.org/licenses/MIT
+ */
+
 namespace Agit\TriggerBundle\Service;
 
-use DateTime;
-use Exception;
-use DateInterval;
-use Serializable;
 use Agit\ApiBundle\Exception\ObjectNotFoundException;
 use Agit\BaseBundle\Tool\StringHelper;
-use Doctrine\ORM\EntityManager;
-use Agit\IntlBundle\Tool\Translate;
 use Agit\TriggerBundle\Entity\TriggerAction;
+use DateInterval;
+use DateTime;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class TriggerService
@@ -47,10 +51,11 @@ class TriggerService
     public function pullTrigger($token)
     {
         $triggerAction = $this->entityManager->getRepository("AgitTriggerBundle:TriggerAction")
-            ->findOneBy([ "token" => $token ]);
+            ->findOneBy(["token" => $token]);
 
-        if (!$triggerAction)
+        if (! $triggerAction) {
             throw new ObjectNotFoundException("The requested token was not found.");
+        }
 
         $tag = $triggerAction->getTag();
         $data = $triggerAction->getData()->getValues();

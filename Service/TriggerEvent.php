@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * @package    agitation/trigger-bundle
+ * @link       http://github.com/agitation/trigger-bundle
+ * @author     Alexander Günsche
+ * @license    http://opensource.org/licenses/MIT
+ */
+
 namespace Agit\TriggerBundle\Service;
 
 use Symfony\Component\EventDispatcher\Event;

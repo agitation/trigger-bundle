@@ -1,9 +1,15 @@
 <?php
 
+/*
+ * @package    agitation/trigger-bundle
+ * @link       http://github.com/agitation/trigger-bundle
+ * @author     Alexander Günsche
+ * @license    http://opensource.org/licenses/MIT
+ */
+
 namespace Agit\TriggerBundle\Controller;
 
 use Exception;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,13 +17,10 @@ class TriggerController extends Controller
 {
     public function tokenAction($token)
     {
-        try
-        {
+        try {
             $this->container->get("agit.trigger")->pullTrigger($token);
             $response = new Response("", 204);
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             $response = new Response($e->getMessage(), 500);
         }
 
@@ -33,15 +36,17 @@ class TriggerController extends Controller
     {
         $codeParts = explode("-", $code);
 
-        if (count($codeParts) !== 2)
+        if (count($codeParts) !== 2) {
             throw new TicketNotFoundException("Invalid ticket ID: $code");
+        }
 
         $ticket = $this->container->get("doctrine.orm.entity_manager")
             ->getRepository("TixysCommonModelBundle:Ticket")
-            ->findOneBy(["id" => (int)$codeParts[0], "code" => $codeParts[1]]);
+            ->findOneBy(["id" => (int) $codeParts[0], "code" => $codeParts[1]]);
 
-        if (!$ticket)
+        if (! $ticket) {
             throw new TicketNotFoundException("Invalid ticket ID: $code");
+        }
 
         return $ticket;
     }

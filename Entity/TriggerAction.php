@@ -1,11 +1,17 @@
 <?php
 
+/*
+ * @package    agitation/trigger-bundle
+ * @link       http://github.com/agitation/trigger-bundle
+ * @author     Alexander Günsche
+ * @license    http://opensource.org/licenses/MIT
+ */
+
 namespace Agit\TriggerBundle\Entity;
 
-use DateTime;
-
-use Doctrine\ORM\Mapping as ORM;
 use Agit\BaseBundle\Entity\GeneratedIdentityAwareTrait;
+use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -35,7 +41,7 @@ class TriggerAction
     private $expires;
 
     /**
-     * Set token
+     * Set token.
      *
      * @param string $token
      *
@@ -44,11 +50,12 @@ class TriggerAction
     public function setToken($token)
     {
         $this->token = $token;
+
         return $this;
     }
 
     /**
-     * Get token
+     * Get token.
      *
      * @return string
      */
@@ -58,7 +65,7 @@ class TriggerAction
     }
 
     /**
-     * Set tag
+     * Set tag.
      *
      * @param string $tag
      *
@@ -67,11 +74,12 @@ class TriggerAction
     public function setTag($tag)
     {
         $this->tag = $tag;
+
         return $this;
     }
 
     /**
-     * Get tag
+     * Get tag.
      *
      * @return string
      */
@@ -81,7 +89,7 @@ class TriggerAction
     }
 
     /**
-     * Set data
+     * Set data.
      *
      * @param array $data
      *
@@ -90,11 +98,12 @@ class TriggerAction
     public function setData($data)
     {
         $this->data = $data;
+
         return $this;
     }
 
     /**
-     * Get data
+     * Get data.
      *
      * @return array
      */
@@ -104,7 +113,7 @@ class TriggerAction
     }
 
     /**
-     * Set expires
+     * Set expires.
      *
      * @param DateTime $expires
      *
@@ -113,11 +122,12 @@ class TriggerAction
     public function setExpires(DateTime $expires)
     {
         $this->expires = $expires;
+
         return $this;
     }
 
     /**
-     * Get expires
+     * Get expires.
      *
      * @return DateTime
      */
