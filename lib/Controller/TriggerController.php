@@ -31,23 +31,4 @@ class TriggerController extends Controller
 
         return $response;
     }
-
-    private function getTicket($code)
-    {
-        $codeParts = explode("-", $code);
-
-        if (count($codeParts) !== 2) {
-            throw new TicketNotFoundException("Invalid ticket ID: $code");
-        }
-
-        $ticket = $this->container->get("doctrine.orm.entity_manager")
-            ->getRepository("TixysCommonModelBundle:Ticket")
-            ->findOneBy(["id" => (int) $codeParts[0], "code" => $codeParts[1]]);
-
-        if (! $ticket) {
-            throw new TicketNotFoundException("Invalid ticket ID: $code");
-        }
-
-        return $ticket;
-    }
 }
