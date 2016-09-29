@@ -66,4 +66,13 @@ class TriggerService
 
         $this->eventDispatcher->dispatch("agit.trigger", new TriggerEvent($tag, $data));
     }
+
+    public function cleanup()
+    {
+        $this->entityManager->createQueryBuilder()
+            ->delete("AgitTriggerBundle:TriggerAction", "action")
+            ->where("action.expires <= :now")
+            ->setParameter("now", new DateTime())
+            ->getQuery()->execute();
+    }
 }
