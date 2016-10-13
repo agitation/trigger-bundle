@@ -1,0 +1,9 @@
+.trigger-handler                                                { margin: 3em auto; }
+.trigger-handler > div                                          { display: none; }
+.trigger-handler > div > *                                      { display: inline-block; vertical-align: middle; }
+.trigger-handler .spinner                                       { height: 2em; width: 2em; }
+.trigger-handler .msg                                           { vertical-align: middle; padding-left: 1em }
+
+.trigger-handler.loading .loading,
+.trigger-handler.error .error,
+.trigger-handler.success .success                               { display: block }
