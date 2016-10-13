@@ -1,0 +1,8 @@
+msgid ""
+msgstr ""
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: @AgitTriggerBundle/Resources/views/Include/template.handler.html.twig:32
+msgid "The requested action has failed, most likely because the token has expired or has already been used."
+msgstr "Die Aktion ist fehlgeschlagen, wahrscheinlich weil das Token abgelaufen ist oder bereits verbraucht ist."
