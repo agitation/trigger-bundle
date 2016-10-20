@@ -1,12 +1,14 @@
 <template id="agtrigger">
-    <div class="trigger-handler loading">
+    <div class="trigger-handler loading container">
         <div class="loading callout">
-            <span class="ind"></span>
-            <span class="msg"></span>
+            <p>
+                <span class="ind"></span>
+                <span class="msg"></span>
+            </p>
         </div>
-        <div class="success callout callout-success"></div>
+        <div class="success callout callout-success"><p></p></div>
         <div class="error callout callout-warning">
-            {{ t("The requested action has failed, most likely because the token has expired or has already been used.") }}
+            <p>{{ t("The requested action has failed, most likely because the token has expired or has already been used.") }}</p>
         </div>
     </div>
 </template>
