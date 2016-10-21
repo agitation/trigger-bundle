@@ -3,6 +3,6 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: @AgitTriggerBundle/Resources/views/Include/template.handler.html.twig:32
+#: @AgitTriggerBundle/Resources/views/Include/template.handler.html.twig:34
 msgid "The requested action has failed, most likely because the token has expired or has already been used."
 msgstr ""

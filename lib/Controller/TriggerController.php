@@ -9,8 +9,8 @@
 
 namespace Agit\TriggerBundle\Controller;
 
-use Exception;
 use Agit\BaseBundle\Exception\AgitException;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
