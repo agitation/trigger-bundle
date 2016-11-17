@@ -22,7 +22,7 @@ class TriggerController extends Controller
             $this->container->get("agit.trigger")->pullTrigger($token);
             $response = new Response("", 204);
         } catch (AgitException $e) {
-            $response = new Response($e->getMessage(), $e->getHttpStatus());
+            $response = new Response($e->getMessage(), $e->getStatusCode());
         } catch (Exception $e) {
             $response = new Response("Internal error.", 500);
         }
