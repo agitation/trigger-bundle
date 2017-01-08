@@ -9,7 +9,7 @@
 
 namespace Agit\TriggerBundle\Controller;
 
-use Agit\BaseBundle\Exception\AgitException;
+use Agit\BaseBundle\Exception\PublicException;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +21,7 @@ class TriggerController extends Controller
         try {
             $this->container->get("agit.trigger")->pullTrigger($token);
             $response = new Response("", 204);
-        } catch (AgitException $e) {
+        } catch (PublicException $e) {
             $response = new Response($e->getMessage(), $e->getStatusCode());
         } catch (Exception $e) {
             $response = new Response("Internal error.", 500);

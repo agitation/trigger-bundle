@@ -9,12 +9,12 @@
 
 namespace Agit\TriggerBundle\Exception;
 
-use Agit\BaseBundle\Exception\AgitException;
+use Agit\BaseBundle\Exception\PublicException;
 
 /**
  * A non-existent ticket has been requested or referenced.
  */
-class InvalidTokenException extends AgitException
+class InvalidTokenException extends PublicException
 {
     protected $statusCode = 400;
 }
