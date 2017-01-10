@@ -1,10 +1,9 @@
 {
     "name": "agitation/trigger-bundle",
     "type": "symfony-bundle",
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.9",
-        "agitation/base-bundle": "dev-master"
+        "agitation/base-bundle": "~1.0"
     },
     "autoload": {
         "psr-4": {
