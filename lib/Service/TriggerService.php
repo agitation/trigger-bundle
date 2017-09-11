@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/trigger-bundle
  * @link       http://github.com/agitation/trigger-bundle
@@ -50,11 +50,12 @@ class TriggerService
 
     public function pullTrigger($token)
     {
-        $triggerAction = $this->entityManager->getRepository("AgitTriggerBundle:TriggerAction")
-            ->findOneBy(["token" => $token]);
+        $triggerAction = $this->entityManager->getRepository('AgitTriggerBundle:TriggerAction')
+            ->findOneBy(['token' => $token]);
 
-        if (! $triggerAction) {
-            throw new ObjectNotFoundException("The requested token was not found.");
+        if (! $triggerAction)
+        {
+            throw new ObjectNotFoundException('The requested token was not found.');
         }
 
         $tag = $triggerAction->getTag();
@@ -64,15 +65,15 @@ class TriggerService
         $this->entityManager->remove($triggerAction);
         $this->entityManager->flush();
 
-        $this->eventDispatcher->dispatch("agit.trigger", new TriggerEvent($tag, $data));
+        $this->eventDispatcher->dispatch('agit.trigger', new TriggerEvent($tag, $data));
     }
 
     public function cleanup()
     {
         $this->entityManager->createQueryBuilder()
-            ->delete("AgitTriggerBundle:TriggerAction", "action")
-            ->where("action.expires <= :now")
-            ->setParameter("now", new DateTime())
+            ->delete('AgitTriggerBundle:TriggerAction', 'action')
+            ->where('action.expires <= :now')
+            ->setParameter('now', new DateTime())
             ->getQuery()->execute();
     }
 }
