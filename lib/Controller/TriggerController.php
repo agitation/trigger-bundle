@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 /*
  * @package    agitation/trigger-bundle
  * @link       http://github.com/agitation/trigger-bundle
